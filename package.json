@@ -1,0 +1,23 @@
+{
+  "name": "react-redux-codevolution",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dilshan-98/react-redux-codevolution.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dilshan-98/react-redux-codevolution/issues"
+  },
+  "homepage": "https://github.com/dilshan-98/react-redux-codevolution#readme",
+  "dependencies": {
+    "redux": "^4.2.0"
+  }
+}
