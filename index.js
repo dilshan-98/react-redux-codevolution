@@ -48,7 +48,7 @@ const reducer = (state = initialState, action) => {
 // 1. Define the store
 const store = createStore(reducer);
 
-// 2. Allow access to state using getState()
+// 2. Allow access to state using getState() ---- Here it is just to see the initial state
 console.log('Initial State ', store.getState());  // Output: Initial State  { numOfCakes: 10 }
 
 // 3. Register to the listeners [Subscribe method accepts a function soo..]
