@@ -1,6 +1,8 @@
 const redux = require("redux");
 const createStore = redux.createStore;
 
+const combineReducer = redux.combineReducers;
+
 console.log("From index.js")
 
 const BUY_CAKE = "BUY_CAKE";
@@ -64,12 +66,18 @@ const iceCreamReducer = (state = buyIcecreamState, action) => {
     }
 }
 
+// Combine reducers [takes in objects of key value pair]
+const rootReducer = combineReducer({
+    cake: reducer,
+    iceCream: iceCreamReducer
+})
+
 
 ///////    Store    ////////
 
 //We use Redux here for the store
 // 1. Define the store
-const store = createStore(reducer);
+const store = createStore(rootReducer);
 
 // 2. Allow access to state using getState() ---- Here it is just to see the initial state
 console.log('Initial State ', store.getState());  // Output: Initial State  { numOfCakes: 10 }
