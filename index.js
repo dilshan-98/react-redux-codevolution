@@ -1,7 +1,13 @@
 const redux = require("redux");
+const reduxLogger = require("redux-logger");
+
 const createStore = redux.createStore;
 
 const combineReducer = redux.combineReducers;
+
+const applyMiddleware = redux.applyMiddleware;
+
+const logger = reduxLogger.createLogger();
 
 console.log("From index.js")
 
@@ -77,14 +83,15 @@ const rootReducer = combineReducer({
 
 //We use Redux here for the store
 // 1. Define the store
-const store = createStore(rootReducer);
+//const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(logger));  // we can pass as many middlewares as we want
 
 // 2. Allow access to state using getState() ---- Here it is just to see the initial state
 console.log('Initial State ', store.getState());  // Output: Initial State  { numOfCakes: 10 }
 
 // 3. Register to the listeners [Subscribe method accepts a function soo..]
 //store.subscribe(() => console.log("Updtaed State ", store.getState()))
-const unsubsribe = store.subscribe(() => console.log("Updated State ", store.getState()));
+const unsubsribe = store.subscribe(() => {});
 
 // 4. To update the state
 //This usually takes actions directly but since we have a action creater (buyCakes), we can use it here

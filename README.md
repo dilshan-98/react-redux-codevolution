@@ -35,4 +35,10 @@
 
     npm init --yes
 
+2. Install react-redux
+
+3. Install redux-logger for the middleware (It logs everything for redux)
+
+    npm i redux-logger
+
 
