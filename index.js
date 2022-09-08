@@ -4,6 +4,7 @@ const createStore = redux.createStore;
 console.log("From index.js")
 
 const BUY_CAKE = "BUY_CAKE";
+const BUY_ICECREAMS = "BUY_ICECREAMS";
 
 // Action Object
 // {
@@ -25,9 +26,16 @@ function buyCake() {
     }
 }
 
+function buyIcecreams() {
+    return {
+        type: BUY_ICECREAMS
+    }
+}
+
 //State
 const initialState = {
-    numOfCakes: 10
+    numOfCakes: 10,
+    numOfIcecreams: 20
 }
 
 //Reducer
@@ -36,6 +44,11 @@ const reducer = (state = initialState, action) => {
         case BUY_CAKE: return {
             ...state, //This is to copy the state first and update only the changing property
             numOfCakes: state.numOfCakes - 1
+        }
+
+        case BUY_ICECREAMS: return {
+            ...state,
+            numOfIcecreams: state.numOfIcecreams - 1
         }
 
         default: return state //this is essential when getState is called wihtout defining an action (dispatching)
@@ -67,6 +80,9 @@ store.dispatch(buyCake())  // Output: Updated State  { numOfCakes: 7 }
 store.dispatch({
     type: BUY_CAKE
 })
+
+store.dispatch(buyIcecreams());  // Output: Updated State  { numOfCakes: 6, numOfIcecreams: 19 }
+store.dispatch(buyIcecreams());  // Output: Updated State  { numOfCakes: 6, numOfIcecreams: 18 }
 
 // 5. Unsubsribe the listener [We do it by calling the function returned by the subscribe method]
 unsubsribe();
