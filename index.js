@@ -35,6 +35,9 @@ function buyIcecreams() {
 //State
 const initialState = {
     numOfCakes: 10,
+}
+
+const buyIcecreamState = {
     numOfIcecreams: 20
 }
 
@@ -46,12 +49,18 @@ const reducer = (state = initialState, action) => {
             numOfCakes: state.numOfCakes - 1
         }
 
+        default: return state //this is essential when getState is called wihtout defining an action (dispatching)
+    }
+}
+
+const iceCreamReducer = (state = buyIcecreamState, action) => {
+    switch (action.type) {
         case BUY_ICECREAMS: return {
             ...state,
             numOfIcecreams: state.numOfIcecreams - 1
         }
 
-        default: return state //this is essential when getState is called wihtout defining an action (dispatching)
+        default: return state
     }
 }
 
