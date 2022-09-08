@@ -38,7 +38,7 @@ const reducer = (state = initialState, action) => {
             numOfCakes: state.numOfCakes - 1
         }
 
-        default: return state
+        default: return state //this is essential when getState is called wihtout defining an action (dispatching)
     }
 }
 
@@ -62,6 +62,11 @@ const unsubsribe = store.subscribe(() => console.log("Updated State ", store.get
 store.dispatch(buyCake())  // Output: Updated State  { numOfCakes: 9 }
 store.dispatch(buyCake())  // Output: Updated State  { numOfCakes: 8 }
 store.dispatch(buyCake())  // Output: Updated State  { numOfCakes: 7 }
+
+//It is easier to have action inisde a fucntion so that it can be edited when needed in one go
+store.dispatch({
+    type: BUY_CAKE
+})
 
 // 5. Unsubsribe the listener [We do it by calling the function returned by the subscribe method]
 unsubsribe();
