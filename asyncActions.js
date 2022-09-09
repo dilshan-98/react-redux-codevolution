@@ -67,7 +67,7 @@ function fetchUsers () {
                 dispatch(fetchUsersSuccess(users));
             })
             .catch(error => {
-                dispatch(fetchUsersRequest(error.message));
+                dispatch(fetchUsersError(error.message));
             })
     }
 }
