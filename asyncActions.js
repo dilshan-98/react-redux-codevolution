@@ -8,6 +8,11 @@ const thunkMiddleware = require("redux-thunk").default;
 
 const axios = require("axios");
 
+/*
+    In fetching, there are 3 properties for a state. They are defined below and 
+    these are common for almost all the fetch requests 
+*/
+
 const initialState = {
     loading: false,
     users: [],
